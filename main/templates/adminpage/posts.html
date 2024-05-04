@@ -1,0 +1,86 @@
+{% extends "adminpage/admin_base.html" %}
+{% load static %}
+{% block content %}  
+<div class="container mt-3 p-5">
+    <header> 
+        <ol class="breadcrumb mb-1 mt-1">
+          <li class="breadcrumb-item"><a href="{% url 'IndexAdmin' %}">Home</a></li>
+          <!-- <li class="breadcrumb-item"><a href="{% url 'home' %}">Painel Produsaun</a></li> -->
+          <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+        </ol>
+    </header>
+    <div class="card">
+    {% if messages %}
+        {% for message in messages %} 
+          <div id="divmessage" class="alert alert-{{ message.tags }} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{message}}
+          </div>
+        {% endfor %}
+    {% endif %}
+        <div class="card-header">
+            <a href="{% url 'admin-post-add' %}" class="btn btn-sm btn-outline-info"><i class="fa fa-plus-square"></i> Rejistu Post</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-sm">
+                <tr>
+                    <th>Titulu Post</th>
+                    <th>Data</th>
+                    <th>Kategoria</th>
+                    <th>Status</th>
+                    <th>Aksaun</th>
+                </tr>
+                {% for data in objects %}
+                <tr>
+                    <td>{{data.title}}</td>
+                    <td>{{data.publication_date|date:"d-M-Y"}}</td>
+                    <td>
+                        {% for i in data.category.all %}
+                            <span class="badge btn-info">{{i.naran}}</span><br>
+                        {% endfor %}
+                    </td>
+                    <td>{{data.status}}</td>
+                    <td>
+                        <button id="updatePost-{{data.id}}" data-id="{{data.id}}" class="btn btn-sm btn-outline-success my-4" data-toggle="modal" data-target="#updateModal-{{ data.id }}"><i class="fa fa-edit"></i> Update ho Modal</button>
+
+
+                        <a href="{% url 'admin-post-update' data.id %}" class="btn btn-sm btn-outline-success my-4"><i class="fa fa-edit"></i></a>
+
+                        <a href="#" data-toggle="modal" data-target="#delete-{{ data.id}}" class="btn btn-sm btn-outline-danger my-4"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                <div class="modal fade" id="delete-{{ data.id}}">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          Ita Boot hakarak hamoos dadus Publikasaun ho titulu {{data.title}}?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                          <a href="{% url 'admin-post-delete' data.id %}" class="btn btn-info">Yes</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                {% include 'adminpage/updateJQuery.html' %}
+                <div class="modal fade" id="updateModal-{{ data.id }}">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                Formulario Update Dados Publikasaun {{ data.title }}?
+                            </div>
+                            <div id="laodedForm-{{data.id}}"></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </table>    
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+{% endblock %}

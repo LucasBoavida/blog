@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konteudu %}
+   <div class="col-md-12 text-center bg-success" style="height: 200px;padding-top: 50px;">
+      <h2 class="" style="vertical-align: middle;">Social Media Management</h2>
+   </div>
+<section id="post-detail">
+    <div class="container">
+      <div class="row" style="margin-top:50px ;">
+         
+         <div class="col-lg-8 col-md-8">
+            <div class="row" style="padding-left: 20px;padding-right: 20px;">
+               <div class="col-sm-6">
+                  <a href="">Author : Pachu px</a>
+               </div>
+               <div class="col-sm-6 text-right">
+                  <p>2024/02/03</p>
+               </div>
+            </div>
+            <div style="margin-top: 50px;">
+               <img src="{% static 'images/bg8.jpg' %}" width="100%" style="margin-bottom: 20px;">
+               <p class="text-justify">
+                  ETL adalah singkatan dari "Extract, Transform, Load" dan merujuk pada proses pengumpulan, transformasi, dan pemuatan data dari berbagai sumber ke dalam sistem atau tempat penyimpanan yang dituju. Berikut adalah penjelasan lebih rinci tentang setiap langkah dalam ETL:
+
+1. Extract (Ekstraksi):
+   - Pada langkah ini, data diambil atau diekstraksi dari berbagai sumber, seperti database, file CSV, API, sistem eksternal, atau sistem lainnya.
+   - Ekstraksi dapat melibatkan pemilihan data yang relevan, penggunaan kueri atau metode akses data yang sesuai.
+
+2. Transform (Transformasi):
+   - Setelah data diekstraksi, tahap transformasi dilakukan untuk membersihkan, memvalidasi, memformat, atau mentransformasi data agar sesuai dengan kebutuhan dan format yang diinginkan.
+   - Transformasi dapat melibatkan proses seperti pemfilteran, normalisasi, agregasi, penggabungan data, perhitungan turunan, pemrosesan teks, atau pemetaan nilai.
+
+3. Load (Pemuatan):
+   - Setelah data diubah dan disiapkan, tahap pemuatan dilakukan untuk memasukkan data yang sudah ditransformasi ke dalam sistem atau tempat penyimpanan yang dituju, seperti database, data warehouse, atau sistem lainnya.
+   - Pemuatan dapat melibatkan pembuatan skema, pembuatan tabel, validasi data, dan memasukkan data ke dalam struktur penyimpanan yang ditentukan.
+
+Fungsi lengkap ETL melibatkan koordinasi dan otomatisasi proses ini secara keseluruhan. Beberapa tugas yang sering dilakukan dalam ETL mencakup:
+
+- Ekstraksi data dari sumber yang berbeda, seperti database, file, sistem eksternal, atau API.
+- Pembersihan dan pemfilteran data untuk memastikan kualitas dan integritas data.
+- Transformasi data sesuai dengan kebutuhan bisnis, seperti konversi tipe data, penggabungan data, pemotongan, normalisasi, atau agregasi.
+- Integrasi data dari berbagai sumber untuk memperoleh gambaran yang lebih komprehensif.
+- Validasi dan pemastian kualitas data sebelum dimuat ke sistem tujuan.
+- Pemuatan data yang sudah diubah ke dalam sistem atau tempat penyimpanan yang dituju.
+
+Tujuan utama ETL adalah menghasilkan data yang berkualitas, terstandarisasi, dan siap digunakan untuk analisis, pelaporan, atau keperluan bisnis lainnya. Dengan proses ETL yang efisien dan andal, organisasi dapat mengumpulkan, memanipulasi, dan menyimpan data dengan baik untuk mendapatkan wawasan yang berharga dan mendukung pengambilan keputusan yang lebih baik.
+
+               </p>
+            </div>
+            <div>
+               <a href="" class="" style="float: left;padding: 5px;border-radius: 10%;">Previous</a>
+               <a href="" style="float: right;">Next</a>
+            </div>
+         </div>
+         <div class="col-lg-4" style="margin-top: 50px;padding-left: 40px;">
+            <div class="text-center">
+               <h4>Recent Post</h4>
+            </div>
+            <div>
+               <div  style="float: left;width: 100px;">
+                  <img src="{% static 'images/author-image1.jpg' %}" width="100%">
+               </div>
+               <div style="padding-left: 120px;">
+                  <h5>Django Models Creation</h5>
+                  <p style="font-size: 0.9em;">Tujuan utama ETL adalah menghasilkan data yang berkualitas, terstandarisasi...</p>
+               </div>
+            </div>
+            <div>
+               <div  style="float: left;width: 100px;">
+                  <img src="{% static 'images/author-image1.jpg' %}" width="100%">
+               </div>
+               <div style="padding-left: 120px;">
+                  <h5>Django Models Creation</h5>
+                  <p style="font-size: 0.9em;">Tujuan utama ETL adalah menghasilkan data yang berkualitas, terstandarisasi...</p>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+</section>
+
+{% endblock konteudu %}
+

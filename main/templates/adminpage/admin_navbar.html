@@ -1,0 +1,25 @@
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item {{active_entrevistador}}"><a class="nav-link" href="{% url 'admin-post' %}"><i class="fa fa-list"></i> POST </a></li>
+        <li class="nav-item {{active_sobrevivente}} dropdown">
+          <a class="nav-link dropdown-toggle {{active_programa}}" href="#" id="programa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list"></i> PORTFOLIO</a>
+          <div class="dropdown-menu" aria-labelledby="programa">
+            <a class="dropdown-item" href="{% url 'admin-portfolio' %}"><i class="fa fa-list"></i> PORTFOLIO</a>
+            <a class="dropdown-item" href="{% url 'admin-project' %}"><i class="fa fa-list"></i> PROJECT</a>
+            <a class="dropdown-item" href="{% url 'admin-categoria' %}"><i class="fa fa-list"></i> CATEGORIA</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'IndexAdmin' %}"><i class="fa fa-cogs"></i> KONFIGURASAUN </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o"></i> {{ request.user.username|upper }}</a>
+          <div class="dropdown-menu" aria-labelledby="profile">
+            <a class="dropdown-item" href="{% url 'user-change-password' %}"><i class="fa fa-cog"></i> Troka Password</a>
+            <a class="dropdown-item" href="{% url 'user-change-account' %}"><i class="fa fa-cog"></i> Troka Username</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>

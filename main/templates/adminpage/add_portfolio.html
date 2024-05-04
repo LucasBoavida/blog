@@ -1,0 +1,27 @@
+{% extends "adminpage/admin_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-3 p-5">
+    {% if messages %}
+    {% for message in messages %} 
+      <div id="divmessage" class="alert alert-{{ message.tags }} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{message}}
+      </div>
+    {% endfor %}
+  {% endif %}
+    <div class="card">
+        <div class="card-header text-center">
+            <h3> {{title}} </h3>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class=" btn btn-sm btn-outline-primary"><i class="fa fa-save"></i> | Rai</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

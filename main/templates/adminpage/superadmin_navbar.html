@@ -1,0 +1,22 @@
+{% load static %}
+<header class="site-header">
+	<nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
+		<a class="navbar-brand" href="{% url 'home' %}">
+		<!-- <img src="{% static 'main/images/logo.jpg' %}" alt="Logo" style="width:40px;"> -->
+		 DASHBOARD
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		{% if user.is_authenticated %}
+			{% if user.groups.all.0.name == 'admin' %}
+				{% include 'adminpage/superadmin_navbar.html' %}
+			{% elif user.groups.all.0.name == 'lucas' %}
+				{% include 'adminpage/admin_navbar.html' %}
+			{% else %}
+				{% include 'adminpage/admin_navbar.html' %}
+			{% endif %}
+		{% endif %}
+	</nav>
+</header>
+<hr/>
