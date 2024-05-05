@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ce1(--@t@1r$(989%4e*8%i#z51amp*s#9xcmh@fmrv!e8k&e*
 DEBUG = True 
 # se wainhira ita dev hela ita nia projetu maka Debug ida nee ita halo true no se launch ona iha publiku maka ita set ba falsa
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blog-73f3.onrender.com','127.0.0.1','localhost']
 
 # ita nia local 
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -87,27 +88,27 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# mysql connection
 DATABASES = {
-    'default' : {
-        'ENGINE' : 'django.db.backends.mysql',
-        'NAME' : 'db_blog',
-        'USER' : 'root',
-        'PASSWORD' : '',
-        'HOST' : '127.0.0.1',
-        'PORT' : '3306',
-        'OPTIONS' : {
-            'init_command' : 'SET sql_mode="STRICT_TRANS_TABLES"'
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# mysql connection
+# DATABASES = {
+#     'default' : {
+#         'ENGINE' : 'django.db.backends.mysql',
+#         'NAME' : 'db_blog',
+#         'USER' : 'root',
+#         'PASSWORD' : '',
+#         'HOST' : '127.0.0.1',
+#         'PORT' : '3306',
+#         'OPTIONS' : {
+#             'init_command' : 'SET sql_mode="STRICT_TRANS_TABLES"'
+#         }
+#     }
+# }
 
 
 # Password validation
